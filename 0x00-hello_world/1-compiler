@@ -1,0 +1,2 @@
+#!/bin/bash
+CFILE="0-main.c"; gcc -c $CFILE > 0-main.0
