@@ -16,6 +16,6 @@ itr = alpha + i;
 putchar(itr);
 i++;
 }
-printf("\n")
+putchar('\n')
 return (0);
 }
