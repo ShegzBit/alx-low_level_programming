@@ -1,2 +1,2 @@
 #!/bin/bash
-CFILE=$CFILE OUTFILE=${CFILE%.c}.s gcc -S -masm=intel -o $OUTFILE $CFILE
+CFILE="100-main.c"; gcc -S -masm=intel $CFILE > 100-main.s\n
