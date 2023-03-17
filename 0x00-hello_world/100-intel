@@ -1,2 +1,2 @@
 #!/bin/bash
-CFILE="main.c"; gcc -S -masm=intel $CFILE > main.s\n
+CFILE="0-main.c"; gcc -S -masm=intel $CFILE > 0-main.s\n
