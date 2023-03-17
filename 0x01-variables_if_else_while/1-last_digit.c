@@ -11,12 +11,12 @@
  */
 int main(void)
 {
-int n;
+int n, value;
 
 srand(time(0));
 n = rand() - RAND_MAX / 2;
 /* your code goes there */
-int value = n % 10;
+value = n % 10;
 printf("%d\n", value);
 if (value > 5)
 {
