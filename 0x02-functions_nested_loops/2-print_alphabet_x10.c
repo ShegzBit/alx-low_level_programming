@@ -1,7 +1,7 @@
 #include <stdio.h>
 /*print_ alphabet - prints the English alphabet in lowercase */
 /**
- * print_alphabet - Short description, single line
+ * print_alphabet_x10 - Short description, single line
 (* a blank line
 * Description: pritns the alphabet in lower case 10x)?
 (* section header: Section description)*
@@ -19,14 +19,4 @@ putchar('a' + i);
 }
 putchar('\n');
 }
-}
-/**
- *main - Entry point
- *
- *Return: Always 0 (Success)
- */
-int main(void)
-{
-print_alphabet_x10();
-return (0);
 }
