@@ -1,13 +1,12 @@
 #include <stdio.h>
 /*print_ alphabet - prints the English alphabet in lowercase */
 /**
- *print alphabet: prints alphabet
- *
- *Return: Always void (Success)
- */
-
-/*print_ alphabet - prints the English alphabet in lowercase */
-
+ * print_alphabet - Short description, single line
+(* a blank line
+* Description: pritns the alphabet in lower case 10x)?
+(* section header: Section description)*
+* Return: Void
+*/
 void print_alphabet(void)
 {
 int a = 0;
