@@ -1,0 +1,23 @@
+#include<stdio.h>
+/*print_ alphabet - prints the English alphabet in lower\
+  case */
+/**
+ * void print_alphabet - prints the lowercase alphabet followed by a line
+(*
+* Description: This function the alphabet then a newline shuld)?
+(* section header: Section description)*
+* Return:returns void
+*/
+void print_alphabet(void)
+{
+int a = 0;
+for (a = 0; a < 10; a++)
+{
+int i = 0;
+for (i = 0; i < 26; i++)
+{
+putchar('a' + i);
+}
+putchar('\n');
+}
+}
