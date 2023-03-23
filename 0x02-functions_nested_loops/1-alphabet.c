@@ -9,14 +9,10 @@
 */
 void print_alphabet(void)
 {
-int a = 0;
-for (a = 0; a < 10; a++)
-{
 int i = 0;
 for (i = 0; i < 26; i++)
 {
 putchar('a' + i);
 }
 putchar('\n');
-}
 }
