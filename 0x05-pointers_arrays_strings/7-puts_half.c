@@ -1,15 +1,19 @@
 #include <stdio.h>
 /**
- * puts2 - print evry second character starting from the 1st
+ * puts_half - print evry second character starting from the 1st
  * @str : str to print from
  */
 
-void puts2(char *str)
+void puts_half(char *str)
 {
-int i;
-for (i = 0; str[i] != '\0'; i += 2)
+int i, j;
+for (i = 0; str[i] != '\0'; i++)
 {
-putchar(str[i]);
+}
+
+for (j = i / 2; j < i; j++)
+{
+putchar(str[j]);
 }
 putchar('\n');
 }
