@@ -13,7 +13,7 @@ int iterate, sub;
 
 for (iterate = 0; iterate < n; iterate++)
 {
-printf("%d", a[i]);
+printf("%d", a[iterate]);
 sub = n - 1;
 if (iterate < sub)
 {
