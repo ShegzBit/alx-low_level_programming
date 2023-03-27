@@ -16,4 +16,5 @@ while (i >= 0)
 putchar(s[i]);
 i--;
 }
+putchar('\n');
 }
