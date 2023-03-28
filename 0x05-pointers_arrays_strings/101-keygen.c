@@ -19,4 +19,5 @@ for (i = 0; i < passLen; i++)
 pW [i] = rand() % 94 + 33;
 }
 printf("%s\n", pW);
+return (0);
 }
