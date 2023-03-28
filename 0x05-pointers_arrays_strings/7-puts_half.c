@@ -10,7 +10,14 @@ int i, j;
 for (i = 0; str[i] != '\0'; i++)
 {
 }
-i--;
+if (i % 2 == 0)
+{
+
+}
+else
+{
+i = i - 1;
+}
 for (j = i / 2; j < i; j++)
 {
 putchar(str[j]);
