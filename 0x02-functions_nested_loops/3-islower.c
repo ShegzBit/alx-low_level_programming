@@ -2,7 +2,7 @@
 /**
  * _islower - Short description, single line
 (* a blank line
-* @parameterc : for char test
+* @c : for char test
 * Description: checks if lowercase)?
 (* section header: Section description)*
 * Return: Description of the returned value
