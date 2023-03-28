@@ -4,7 +4,7 @@
 #include <string.h>
 /**
  * main - generates a random password string
- * 
+ *
  * Returns: zero on success
  */
 #define passLen 10
