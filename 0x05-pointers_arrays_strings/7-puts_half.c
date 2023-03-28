@@ -1,28 +1,21 @@
-#include <stdio.h>
+#include "main.h"
+
 /**
- * puts_half - print evry second character starting from the 1st
- * @str : str to print from
+ * puts_half - prints the second half of a string.
+ *@str: string to use.
  */
 
 void puts_half(char *str)
 {
-int i, j;
-for (i = 0; str[i] != '\0'; i++)
-{
-}
-if (i % 2 == 0)
-{
+  int size, b, i;
 
-}
-else
+for (size = 0; str[size] != '\0'; size++)
 {
-i = i - 1;
 }
-for (j = i / 2; j < i; j++)
+b = (size - 1) / 2;
+for (i = b + 1; str[i] != '\0'; i++)
 {
-putchar(str[j]);
+putchar(str[i]);
 }
-
-
 putchar('\n');
 }
