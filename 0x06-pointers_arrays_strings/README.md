@@ -1,0 +1,1 @@
+Learning pointers while working with strings and array
