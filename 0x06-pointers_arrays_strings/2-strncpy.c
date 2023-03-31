@@ -9,20 +9,21 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-int i, j = 0;
-dest = (char *) malloc(n + 1);
-for (i = 0; i < n; i++)
+int i;
+
+i = 0;
+
+while (src[i] != '\0' && i < n)
 {
 dest[i] = src[i];
+i++;
 }
-while (src[j])
+
+while (i < n)
 {
-j++;
+dest[i] = '\0';
+i++;
 }
-while (j < n)
-{
-dest[j] = '\0';
-j++;
-}
+
 return (dest);
 }
