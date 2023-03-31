@@ -8,20 +8,14 @@
  */
 void reverse_array(int *a, int n)
 {
-int swap[n], i = 0, p;
-p = n - 1;
-while (p >= 0)
-{
-swap[i++] = a[p--];
+int i, j, ins;
 
-}
-free(a);
-a = (int *) malloc(sizeof(swap) / sizeof(int))
-if (a != NULL)
+j = n - 1;
+
+for (i = 0; i < n / 2; i++)
 {
-for (i = 0; i < n; i++)
-{
-a[i] = swap[i];
-}
+ins = a[i];
+a[i] = a[j];
+a[j--] = ins;
 }
 }
