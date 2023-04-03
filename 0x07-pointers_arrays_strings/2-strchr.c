@@ -17,6 +17,7 @@ for (i = 0; i < length; i++)
 if (s[i] == c)
 {
 ptr = (s + i);
+break;
 }
 }
 return (ptr);
