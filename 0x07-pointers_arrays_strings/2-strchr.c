@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include "main.h"
 /**
  * _strchr - finds the first characterin the string passed to it
