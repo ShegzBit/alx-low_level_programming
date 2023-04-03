@@ -9,7 +9,6 @@
 char *_strchr(char *s, char c)
 {
 int i, length;
-char *ptr = NULL;
 for (length = 0; s[length] != 0; length++)
 {
 }
@@ -17,9 +16,8 @@ for (i = 0; i < length; i++)
 {
 if (s[i] == c)
 {
-ptr = (s + i);
-break;
+return (s + i);
 }
 }
-return (ptr);
+return (NULL);
 }
