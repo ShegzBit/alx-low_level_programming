@@ -1,3 +1,4 @@
+#include <stddef.h>
 /**
  * _strpbrk - returns the first char in s and also in accept
  * @s : string to be checked through
