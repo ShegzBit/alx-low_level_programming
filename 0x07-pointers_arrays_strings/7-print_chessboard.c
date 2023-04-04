@@ -1,4 +1,4 @@
-#include <sttdef.h>
+#include <stdio.h>
 /**
  * print_chessboard - draws a 2d array passed to it
  * @a : array passed to function
