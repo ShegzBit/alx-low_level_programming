@@ -6,16 +6,18 @@
  */
 char *_strpbrk(char *s, char *accept)
 {
-int i, j;
-for (i = 0; s[i] != '\0'; i++)
+int index;
+
+while (*s)
 {
-for (j = 0; accept[j] != '\0'; j++)
+for (index = 0; accept[index]; index++)
 {
-if (accept[j] == s[i])
+if (*s == accept[index])
 {
-return (s + i);
+return (s);
 }
 }
+s++;
 }
 return (NULL);
 }
