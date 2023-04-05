@@ -13,7 +13,7 @@ putchar('\n');
 }
 else
 {
-i -=1;
+i -= 1;
 putchar(s[i]);
 s[i] = '\0';
 _print_rev_recursion(s);
