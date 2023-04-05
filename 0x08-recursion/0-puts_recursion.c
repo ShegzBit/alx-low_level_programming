@@ -15,5 +15,4 @@ else
 {
 putchar('\n');
 }
-
 }
