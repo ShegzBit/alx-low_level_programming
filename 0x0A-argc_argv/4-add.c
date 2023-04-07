@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 /**
- * main - prints the number of var passed to it
+ * main - print sum of integer arguments passed to it
  * @argc : argument count
  * @argv : array of arguments
  * Return: 0 on success
@@ -9,19 +10,25 @@
 
 int main(int argc, char **argv)
 {
-int mul = 1, i;
-if (argc == 3)
+int mul = 0, i;
+if (argc == 1)
+{
+printf("0\n");
+}
+else
 {
 for (i = 1; i < argc; i++)
 {
-mul *= atoi(argv[i]);
-}
-printf("%d\n", mul);
+if (atoi(argv[i]) != 0)
+{
+mul += atoi(argv[i]);
 }
 else
 {
 printf("Error\n");
 return (1);
+}
+}
 }
 return (0);
 }
