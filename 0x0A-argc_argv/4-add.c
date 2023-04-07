@@ -11,7 +11,7 @@
 
 int main(int argc, char **argv)
 {
-  int mul = 0, i, j, size;
+int mul = 0, i, j, size;
 if (argc == 1)
 {
 printf("0\n");
