@@ -29,6 +29,7 @@ printf("Error\n");
 return (1);
 }
 }
+printf("%d\n", mul);
 }
 return (0);
 }
