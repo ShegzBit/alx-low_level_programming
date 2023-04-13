@@ -29,7 +29,6 @@ nPtr = malloc(new_size);
 }
 if (new_size > old_size)
 {
-nPtr = malloc(new_size);
 memcpy(nPtr, ptr, old_size);
 free(ptr);
 }
