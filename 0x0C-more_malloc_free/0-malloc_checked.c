@@ -5,8 +5,8 @@
 
 /**
  * malloc_checked - returns a void pointer
- * @b : size to malloc
- * Return: void pointer
+ *@b : size to malloc
+ *Return: void pointer
  */
 void *malloc_checked(unsigned int b)
 {
