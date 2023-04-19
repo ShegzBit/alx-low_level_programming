@@ -1,5 +1,5 @@
 #include "function_pointers.h"
-#include <stdio.h>
+#include <stdlib.h>
 /**
  * print_name - calls the function passed to it
  * @name : name of person to be printed
