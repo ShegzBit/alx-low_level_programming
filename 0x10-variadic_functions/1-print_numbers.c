@@ -19,7 +19,7 @@ for (i = 0; i < n; i++)
 printf("%d", va_arg(ap, int));
 if (i < (n - 1))
 {
-if (separtor == NULL)
+if (separator == NULL)
 {
 }
 else
