@@ -3,8 +3,8 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - print char, integer, float and string
- * @format: format
+ * print_all - prints all datatype
+ * @format: format for print handling
  */
 void print_all(const char * const format, ...)
 {
