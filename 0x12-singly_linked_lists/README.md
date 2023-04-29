@@ -1,0 +1,1 @@
+a readme for practicing the use of ```singly linked list```
