@@ -6,20 +6,19 @@
  */
 size_t print_list(list_t *h)
 {
-unsigned int i = 1;
+unsigned int i = 0;
 if (h != NULL)
 {
 if (h->str != NULL)
 {
-printf("%c%d%c %s\n", '[', h->len, ']', h->str);
+printf("[%d] %s\n", h->len, h->str);
 }
 else
 {
 printf("[0] (nil)\n");
 }
 h = h->next;
-i++;
-print_list(h);
+i = 1 + print_list(h);
 }
 return (i);
 }
