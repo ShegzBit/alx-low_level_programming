@@ -1,1 +1,0 @@
-This directory is for learning about how to use arguments passed to main functions on the command line main(int argc, char **argv)
