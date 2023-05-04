@@ -1,1 +1,0 @@
-A directory for learning and gaining experience using malloc
