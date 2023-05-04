@@ -1,1 +1,0 @@
-A 0x0C-more_malloc_free to learn the use of ```malloc``` and ```calloc``` and ```realloc``` and ```free```
