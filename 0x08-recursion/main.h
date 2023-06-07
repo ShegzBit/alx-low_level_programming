@@ -12,6 +12,7 @@ void _print_rev_recursion(char *s);
 void rev_ass(char *, int);
 int _strlen_recursion(char *s);
 int strlen_ass(char *, int);
+int factorial(int n);
 
 
 #endif
