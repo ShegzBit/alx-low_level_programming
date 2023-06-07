@@ -1,11 +1,28 @@
 #include "main.h"
 
 /**
- * _puts_recursion - a puts function using recursion
- * @s: str to print
+ * _puts_recursion - puts duplicate using recursion
+ * @s: string to print from
 */
 void _puts_recursion(char *s)
 {
-write(1, s, strlen(s));
-_putchar('\n');
+	int num = 0;
+
+	recursion_ass(s, num);
+}
+
+void recursion_ass(char *s, int num)
+{
+	int len = strlen(s);
+
+	if (num < len)
+	{
+		_putchar(s[num]);
+		num++;
+		recursion_ass(s, num);
+	}
+	else
+	{
+		_putchar('\n');
+	}
 }

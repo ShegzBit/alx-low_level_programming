@@ -7,6 +7,7 @@
 
 void _putchar(char);
 void _puts_recursion(char *s);
+void recursion_ass(char *s, int num);
 
 
 #endif
