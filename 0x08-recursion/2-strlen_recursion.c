@@ -24,8 +24,8 @@ int strlen_ass(char *s, int num)
 {
 	if (s[num] != '\0')
 	{
-		num++;
-		return (strlen_ass(s, num));
+		num += 1;
+		num = (strlen_ass(s, num));
 	}
 	return (num);
 }
