@@ -15,6 +15,8 @@ int strlen_ass(char *, int);
 int factorial(int n);
 int _pow_recursion(int x, int y);
 int pow_ass(int, int, int);
+int _sqrt_recursion(int n);
+int sqrt_helper(int, int);
 
 
 #endif
