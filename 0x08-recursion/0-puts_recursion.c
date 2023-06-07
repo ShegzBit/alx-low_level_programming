@@ -11,6 +11,11 @@ void _puts_recursion(char *s)
 	recursion_ass(s, num);
 }
 
+/**
+ * recursion_ass - puts_recursion assistant
+ * @s: string to put
+ * @num: index position to put
+*/
 void recursion_ass(char *s, int num)
 {
 	int len = strlen(s);
