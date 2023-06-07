@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-_puts_recursion("revstr");
-return (0);
+    _print_rev_recursion("\nColton Walker");
+    return (0);
 }
