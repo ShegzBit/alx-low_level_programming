@@ -7,5 +7,6 @@
 int _strlen(char *s);
 int _isdigit(char c);
 int isnumeral(char *s);
+void _putchar(char);
 
 #endif
