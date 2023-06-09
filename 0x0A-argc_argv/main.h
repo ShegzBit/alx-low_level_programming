@@ -4,4 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int _strlen(char *s);
+int _isdigit(char c);
+int isnumeral(char *s);
+
 #endif
