@@ -36,7 +36,7 @@ void print_grid(int **grid, int width, int height)
 */
 int main(void)
 {
-    int **grid = alloc_grid(0, -1);
+    int **grid = alloc_grid(0, 4);
     if (grid == NULL)
     {
         return (1);
