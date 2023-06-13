@@ -23,6 +23,7 @@ char *argstostr(int ac, char **av)
 		size += strlen(av[i]);
 		size += 1;
 	}
+	size++;
 
 	/* allocate memory of that size to a new string*/
 	ret = malloc(size * sizeof(char));
@@ -41,5 +42,6 @@ char *argstostr(int ac, char **av)
 		}
 		ret[k++] = '\n';
 	}
+	ret[k] = '\0';
 	return (ret);
 }
