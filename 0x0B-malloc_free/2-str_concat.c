@@ -14,7 +14,6 @@ char *strcon_helper(char *s1, char *s2)
 
 	n1 = strlen(s1), n2 = strlen(s2), size = n1 + n2 + 1;
 	ret = malloc(size * sizeof(char));
-	i = size - 1;
 	if (ret == NULL)
 	return (NULL);
 
@@ -70,7 +69,7 @@ char *str_concat(char *s1, char *s2)
 		strcpy(ret, s1);
 		ret[i] = '\0';
 	}
-	else
+	else if (s1 == NULL && s2 == NULL)
 	{
 		ret = malloc(1 * sizeof(char));
 		ret[0] = '\0';
