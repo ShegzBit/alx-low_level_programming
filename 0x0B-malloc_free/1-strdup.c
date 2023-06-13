@@ -7,9 +7,15 @@
 */
 char *_strdup(char *str)
 {
-	int n = strlen(str);
-	char *ret = malloc(n * sizeof(char));
+	int n;
+	char *ret;
 	int i;
+
+	if (str == NULL)
+	return (NULL);
+
+	n = strlen(str);
+	ret  = malloc(n * sizeof(char));
 
 	if (ret == NULL)
 	return (NULL);
