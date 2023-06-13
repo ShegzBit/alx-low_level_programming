@@ -75,6 +75,6 @@ char *str_concat(char *s1, char *s2)
 		ret = malloc(1 * sizeof(char));
 		ret[0] = '\0';
 	}
-	
+
 	return (ret);
 }
