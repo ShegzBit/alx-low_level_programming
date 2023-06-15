@@ -19,7 +19,7 @@ if (max != 2)
 printf("Error\n");
 exit(98);
 }
-for (i = 1; i < max; i++)
+for (i = 1; i <= max; i++)
 {
 for (j = 0; j < strlen(av[i]); j++)
 {
