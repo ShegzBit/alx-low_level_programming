@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * string_nconcat - concats n number of string to s1 from s2
@@ -16,8 +17,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	 * cpy s1 and s2 into str
 	 * return str
 	*/
-	unsigned int len1 = (s1 == NULL) ? 0 : strlen(s1);
-	unsigned int len2 = (s1 == NULL) ? 0 : strlen(s2), size;
+	unsigned int len1 = (s1 == NULL) ? 0 : strlen(s1), i;
+	unsigned int len2 = (s2 == NULL) ? 0 : strlen(s2), size;
 	char *ret;
 
 	if (s1 == NULL)
@@ -29,8 +30,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	size = len1 + len2 + 1;
 	ret = malloc(size);
 	strcpy(ret, s1);
-	strncat(ret, s2, n);
-
+	for (i = len1; i < size; i++)
+		ret[i] = *s2++;
 	ret[size - 1] = '\0';
 	return (ret);
 }
