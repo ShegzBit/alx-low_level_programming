@@ -1,35 +1,36 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * string_nconcat - allocates memory and copy s1 and s2 up to index n into it
+ * string_nconcat - concats n number of string to s1 from s2
  * @s1: string 1
  * @s2: string 2
- * @n: number to copy from s2
- * Return: pointer to new string
+ * @n: bytes to concat
+ * Return: concatenated str
 */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int len, i, size, j;
+	/**
+	 * if alloc fail return null
+	 * if n >= s2 lenght n = s2 length
+	 * if s1 or s2 is null then s1 or s2 = ""
+	 * cpy s1 and s2 into str
+	 * return str
+	*/
+	unsigned int len1 = (s1 == NULL) ? 0 : strlen(s1);
+	unsigned int len2 = (s1 == NULL) ? 0 : strlen(s2), size;
 	char *ret;
 
-	n -= 1;
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	len = strlen(s1);
-	size = (n > strlen(s2)) ? len + strlen(s2) + 1 : len + n + 1;
-	ret =  malloc(sizeof(char) * size);
-	if (ret == NULL)
-		return (NULL);
-
+	if (n >= len2)
+		n = len2;
+	size = len1 + len2 + 1;
+	ret = malloc(size);
 	strcpy(ret, s1);
-	for (i = len, j = 0; i < size; i++, j++)
-	{
-		ret[i] = s2[j];
-	}
-	ret[i] = '\0';
+	strncat(ret, s2, n);
 
+	ret[size - 1] = '\0';
 	return (ret);
 }
