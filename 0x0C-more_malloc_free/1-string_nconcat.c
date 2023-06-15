@@ -13,26 +13,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int len, i, size, j;
 	char *ret;
 
-	if (s1 == NULL && s2 == NULL)
-	{
-		ret = malloc(1);
-		ret[0] = '\0';
-		return (ret);
-	}
+	n -= 1;
 	if (s1 == NULL)
-	{
-		ret = malloc(strlen(s2) + 1);
-		strcpy(ret, s2);
-		ret[strlen(s2)] = '\0';
-		return (ret);
-	}
+		s1 = "";
 	if (s2 == NULL)
-	{
-		ret = malloc(strlen(s1) + 1);
-		strcpy(ret, s1);
-		ret[strlen(s1)] = '\0';
-		return (ret);
-	}
+		s2 = "";
 	len = strlen(s1);
 	size = (n > strlen(s2)) ? len + strlen(s2) + 1 : len + n + 1;
 	ret =  malloc(sizeof(char) * size);
