@@ -6,8 +6,11 @@
 void print_dog(struct dog *d)
 {
 char *o = d->owner;
-#define O Owner
-if (d != NULL)
+if (d == NULL)
+{
+exit(0);
+}
+else
 {
 (d->name != NULL) ?  printf("Name: %s\n", d->name) :  printf("Name: (nil)\n");
 printf("Age: %f\n", d->age);
