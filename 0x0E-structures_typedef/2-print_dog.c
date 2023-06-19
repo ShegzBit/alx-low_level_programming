@@ -5,13 +5,14 @@
  */
 void print_dog(struct dog *d)
 {
-char *o = d->owner;
+char *o;
 if (d == NULL)
 {
-exit(0);
+
 }
 else
 {
+o = d->owner;
 (d->name != NULL) ?  printf("Name: %s\n", d->name) :  printf("Name: (nil)\n");
 printf("Age: %f\n", d->age);
 (d->owner != NULL) ? printf("Owner: %s\n", o) : printf("Owner: (nil)\n");
