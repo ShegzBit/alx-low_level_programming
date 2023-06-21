@@ -1,6 +1,12 @@
 #ifndef _CALC_H
 #define _CALC_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef int (*op_f)(int, int);
+
 /**
  *  * struct op - Struct op
  *   *
