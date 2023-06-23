@@ -8,17 +8,27 @@
  */
 int main(int ac, char **av)
 {
-	int (*main_ptr)(int, char**) = &main;
+	unsigned char *main_ptr = (unsigned char *)&main;
+	int i = 0;
+	int n = atoi(av[1]);
 
 	if (ac != 2)
 	{
 		printf("Error\n");
 		exit(1);
 	}
-	if (atoi(av[1]) < 0)
+	if (n < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
-	printf("%p", main_ptr);
+	while (i < n)
+	{
+		printf("%02x", *(main_ptr + i));
+		if (i < n-1)
+			putchar(' ');
+		i++;
+	}
+	putchar('\n');
+	return (0);
 }
