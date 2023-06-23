@@ -25,7 +25,7 @@ int main(int ac, char **av)
 	while (i < n)
 	{
 		printf("%02x", *(main_ptr + i));
-		if (i < n-1)
+		if (i < n - 1)
 			putchar(' ');
 		i++;
 	}
