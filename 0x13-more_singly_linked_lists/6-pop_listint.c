@@ -8,7 +8,7 @@
 int pop_listint(listint_t **head)
 {
 	/*create the needed variables*/
-	listint_t *temp = malloc(sizeof(listint_t));
+	listint_t *temp;
 	int n_temp = 0;
 
 	/*Handle for list is empty*/
