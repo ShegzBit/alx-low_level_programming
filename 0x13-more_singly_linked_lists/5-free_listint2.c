@@ -8,6 +8,8 @@ void free_listint2(listint_t **head)
 {
 	listint_t *temp;
 
+	if (head == NULL)
+		return;
 	/*Loop while head is not null and free all spaces alloced through malloc*/
 	while (*head != NULL)
 	{
