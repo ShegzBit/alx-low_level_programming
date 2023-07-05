@@ -10,6 +10,7 @@ listint_t *add_nodeint(listint_t **head, const int n)
 {
 	/*create needed variables*/
 	listint_t *temp, *l_head;
+
 	temp = malloc(sizeof(listint_t));
 
 	if (temp == NULL)
