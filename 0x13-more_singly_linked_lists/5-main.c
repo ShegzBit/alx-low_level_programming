@@ -1,28 +1,24 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
+#include <assert.h>
 
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(void)
+int main()
 {
-    listint_t *head;
+listint_t *head = NULL;
+free_listint2(&head);
+assert(head == NULL);
 
-    head = NULL;
-    add_nodeint_end(&head, 0);
-    add_nodeint_end(&head, 1);
-    add_nodeint_end(&head, 2);
-    add_nodeint_end(&head, 3);
-    add_nodeint_end(&head, 4);
-    add_nodeint_end(&head, 98);
-    add_nodeint_end(&head, 402);
-    add_nodeint_end(&head, 1024);
-    print_listint(head);
-    free_listint2(&head);
-    printf("%p\n", (void *)head);
-    return (0);
+head = NULL;
+free_listint2(&head);
+assert(head == NULL);
+
+head = malloc(sizeof(listint_t));
+head->n = 4;
+head->next = malloc(sizeof(listint_t));
+head->next->n = 6;
+head->next->next = malloc(sizeof(listint_t));
+head->next->next->n = 8;
+head->next->next->next = NULL;
+free_listint2(&head);
+assert(head == NULL);
+return 0;
 }
