@@ -21,7 +21,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1)
 		return (0);
 
-/*read from file while not at end*/
+/*read from file*/
 	read_byte = read(fd, (void *)buffer, letters);
 	if (read_byte == -1)
 		return (0);
