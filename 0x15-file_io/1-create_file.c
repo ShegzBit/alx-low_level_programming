@@ -8,27 +8,29 @@
 */
 int create_file(const char *filename, char *text_content)
 {
-/*Create file descriptor*/
+	/*Create fd and other neccessary variables*/
 	int fd, written;
 
+	/*Handle for txt content or filename is null*/
 	if (filename == NULL)
 		return (-1);
+
 	text_content = (text_content == NULL) ? "" : text_content;
-/*Open fd*/
-	fd = open(filename, O_WRONLY | O_CREAT);
+
+	/*Create file if it doesn't exist and make permission rw*/
+	fd = open(filename, O_WRONLY | O_TRUNC);
 	if (fd == -1)
-		fd = open(filename, O_WRONLY);
-	else
-	{
-		fd = open(filename, O_WRONLY | O_TRUNC);
-		if (fd == -1)
-			return (-1);
-	}
-/*write to it*/
-	written = write(fd, text_content, strlen(text_content));
-	if (written == -1)
+		open(filename, O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	if (fd == -1)
 		return (-1);
-	/*Close fd*/
-	close(fd);
+
+	/*Write to file and close file*/
+	written = write(fd, (void *)text_content, strlen(text_content));
+	if (written == -1)
+	{
+		close(fd);
+		return (-1);
+	}
+
 	return (1);
 }
