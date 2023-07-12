@@ -13,7 +13,7 @@ int fd_to_opener(char *f_to)
 
 	fd_to = open(f_to, O_WRONLY | O_TRUNC);
 	if (fd_to == -1)
-		fd_to = open(f_to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
+		fd_to = open(f_to, O_WRONLY | O_TRUNC | O_CREAT, 00664);
 	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_to);
@@ -48,15 +48,14 @@ int fd_from_opener(char *f_from)
 */
 int main(int ac, char **av)
 {
-	int fd_from, fd_to, written, read_byte;
+	int fd_from, fd_to, written, read_byte, closed;
 	char *f_from = av[1], *f_to = av[2], content[buffer];
 
 	if (ac != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", av[0]);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	umask(0);
 	fd_from = fd_from_opener(f_from);
 	fd_to = fd_to_opener(f_to);
 	do {
@@ -73,14 +72,12 @@ int main(int ac, char **av)
 			exit(99);
 		}
 	} while (read_byte != 0);
-	close(fd_to);
-	if (fd_to == -1)
+	if (close(fd_to) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
 	}
-	close(fd_from);
-	if (fd_from == -1)
+	if (close(fd_from) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 		exit(100);
