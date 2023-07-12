@@ -48,7 +48,7 @@ int fd_from_opener(char *f_from)
 */
 int main(int ac, char **av)
 {
-	int fd_from, fd_to, written, read_byte, closed;
+	int fd_from, fd_to, written, read_byte;
 	char *f_from = av[1], *f_to = av[2], content[buffer];
 
 	if (ac != 3)
