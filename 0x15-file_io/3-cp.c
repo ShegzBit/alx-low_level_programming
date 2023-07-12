@@ -83,7 +83,7 @@ int main(int ac, char **av)
 	close(fd_from);
 	if (fd_from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 		exit(100);
 	}
 	return (0);
