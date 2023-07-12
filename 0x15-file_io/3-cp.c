@@ -49,13 +49,15 @@ int fd_from_opener(char *f_from)
 int main(int ac, char **av)
 {
 	int fd_from, fd_to, written, read_byte;
-	char *f_from = av[1], *f_to = av[2], content[buffer];
+	char *f_from = av[1], *f_to = av[2], *content = malloc(sizeof(char) * buffer);
 
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	if (content == NULL)
+		return (1);
 	fd_from = fd_from_opener(f_from);
 	fd_to = fd_to_opener(f_to);
 	do {
@@ -82,5 +84,6 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 		exit(100);
 	}
+	free(content);
 	return (0);
 }
