@@ -3,7 +3,7 @@
 #define buffer 1024
 
 /**
- * fd_to_opener - opens f_from
+ * fd_to_opener - opens av[1]
  * @f_to: file to open
  * Return: 99 on failure | fd_from on success
 */
@@ -23,7 +23,7 @@ int fd_to_opener(char *f_to)
 }
 
 /**
- * fd_from_opener - opens f_from
+ * fd_from_opener - opens av[1]
  * @f_from: file to open
  * Return: 98 on failure | fd_from on success
 */
@@ -49,7 +49,7 @@ int fd_from_opener(char *f_from)
 int main(int ac, char **av)
 {
 	int fd_from, fd_to, written, read_byte;
-	char *f_from = av[1], *f_to = av[2], *content = malloc(sizeof(char) * buffer);
+	char *content = malloc(sizeof(char) * buffer);
 
 	if (ac != 3)
 	{
@@ -58,19 +58,19 @@ int main(int ac, char **av)
 	}
 	if (content == NULL)
 		return (1);
-	fd_from = fd_from_opener(f_from);
-	fd_to = fd_to_opener(f_to);
+	fd_from = fd_from_opener(av[1]);
+	fd_to = fd_to_opener(av[2]);
 	do {
 		read_byte = read(fd_from, content, buffer);
 		if (read_byte == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_from);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[1]);
 			exit(98);
 		}
 		written = write(fd_to, content, read_byte);
 		if (written == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
 	} while (read_byte != 0);
