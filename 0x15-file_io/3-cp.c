@@ -64,7 +64,7 @@ int main(int ac, char **av)
 		read_byte = read(fd_from, content, buffer);
 		if (read_byte == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[1]);
+			dprintf(STDERR_FILENO, "Error: Can't read to %s\n", av[1]);
 			exit(98);
 		}
 		written = write(fd_to, content, read_byte);
