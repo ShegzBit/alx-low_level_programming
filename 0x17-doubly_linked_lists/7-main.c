@@ -42,7 +42,10 @@ int main(void)
      printf("-----------------\n");
     insert_dnodeint_at_index(&head, 11, 13);
     print_dlistint(head);
-    free_dlistint(head);
-    head = NULL;
+
+    printf("/*Insert at unreachable*/\n");
+     printf("-----------------\n");
+    insert_dnodeint_at_index(&head, 19, 13);
+    print_dlistint(head);
     return (EXIT_SUCCESS);
 }
