@@ -6,10 +6,10 @@
  */
 int print_last_digit(int n)
 {
-int get = 10;
-while (n % get >= 10)
-{
-get *= 10;
-}
-return (n % get);
+	int last_digit = n % 10;
+
+	if (n < 0)
+		last_digit *= -1;
+	putchar(last_digit + '0');
+	return (last_digit);
 }
