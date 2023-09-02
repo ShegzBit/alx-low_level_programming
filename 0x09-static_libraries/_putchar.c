@@ -1,12 +1,11 @@
 #include <unistd.h>
 #include <stdio.h>
 /**
- *main - Entry point
+ * _putchar - writes a char
  *
- *Return: Always 0 (Success)
+ *Return: Always 1
  */
-int main(void)
+int _putchar(char c)
 {
-  write(1, "_putchar\n", 9);
-  return (0);
+	return (write(1, &c, 1));
 }
