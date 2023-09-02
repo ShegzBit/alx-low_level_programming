@@ -11,5 +11,7 @@ int _putchar(char c);
 int _islower(int c);
 void print_alphabet_x10(void);
 void print_alphabet(void);
+void jack_bauer(void);
+void puttime(int n, int n2);
 
 #endif /*_MAIN_H_*/
