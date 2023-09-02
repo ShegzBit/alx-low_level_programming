@@ -14,7 +14,9 @@ int main(void)
 		current = next + prev;
 		prev = next;
 		next = current;
-		printf("%ld, ", prev);
+		printf("%ld", prev);
+		if (prev != 20365011074)
+			printf(", ");
 
 	}
 	putchar('\n');
