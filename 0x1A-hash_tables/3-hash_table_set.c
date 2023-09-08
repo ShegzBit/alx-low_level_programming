@@ -14,7 +14,7 @@ int handle_collision(hash_table_t *ht, unsigned long int index,
 	hash_node_t *cur_hs = NULL, *temp = NULL;
 
 	cur_hs = ht->array[index];
-	if (strcmp(cur_hs->key, node->key) == 0)
+	if (cur_hs != NULL && strcmp(cur_hs->key, node->key) == 0)
 	{
 		free(ht->array[index]);
 		ht->array[index] = node;
