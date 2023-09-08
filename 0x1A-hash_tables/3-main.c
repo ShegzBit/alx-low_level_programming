@@ -18,5 +18,10 @@ int main(void)
     printf("%s\n", ht->array[index]->value);
     index = key_index(key2, 1024);
     printf("%s\n", ht->array[index]->next->value);
+    hash_table_set(ht, "mentioner", "Now cooler");
+    printf("%s\n", ht->array[index]->next->value);
+    hash_table_set(ht, "betty", "once cool");
+    index = key_index(key, 1024);
+    printf("%s\n", ht->array[index]->value);
     return (EXIT_SUCCESS);
 }
