@@ -52,7 +52,7 @@ int handle_collision(hash_table_t *ht, unsigned long int index,
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *node, *cur_hs = NULL, *temp = NULL;
+	hash_node_t *node, *cur_hs = NULL;
 	unsigned long int index;
 
 	if (ht == NULL || key == NULL || value == NULL || strlen(key) == 0)
