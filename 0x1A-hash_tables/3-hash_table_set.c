@@ -11,7 +11,7 @@
 int handle_collision(hash_table_t *ht, unsigned long int index,
 		hash_node_t *node)
 {
-	hash_node_t *cur_hs = NULL, *temp = NULL;
+	hash_node_t *cur_hs = NULL;
 
 	cur_hs = ht->array[index];
 	if (cur_hs != NULL && strcmp(cur_hs->key, node->key) == 0)
@@ -25,12 +25,13 @@ int handle_collision(hash_table_t *ht, unsigned long int index,
 		{
 			if (strcmp(cur_hs->key, node->key) == 0)
 			{
-				node->next = cur_hs->next;
-				temp->next = node;
-				free(cur_hs);
+				free(ht->array[index]->value);
+				ht->array[index]->value = strdup(node->value);
+				free(node->key);
+				free(node->value);
+				free(node);
 				break;
 			}
-			temp = cur_hs;
 			cur_hs = cur_hs->next;
 		}
 		if (cur_hs == NULL)
