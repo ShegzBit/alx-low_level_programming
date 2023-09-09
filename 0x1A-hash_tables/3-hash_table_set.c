@@ -61,10 +61,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (node == NULL)
 		return (0);
 	node->next = NULL;
-	node->key = (void *)key;
+	node->key = strdup(key);
+	if (node->key == NULL)
+	{
+		free(node);
+		return (0);
+	}
 	node->value = strdup(value);
 	if (node->value == NULL)
+	{
+		free(node);
+		free(node->key);
 		return (0);
+	}
 	index = key_index((void *)key, ht->size);
 	cur_hs = ht->array[index];
 	if (cur_hs == NULL)

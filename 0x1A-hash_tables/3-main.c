@@ -8,20 +8,28 @@
 int main(void)
 {
     hash_table_t *ht;
-    const unsigned char *key = "betty", *key2 = "hetairas";
-    int index = key_index(key, 1024);
 
     ht = hash_table_create(1024);
-    hash_table_set(ht, "betty", "cool");
-    hash_table_set(ht, "hetairas", "unknown");
-    hash_table_set(ht, "mentioner", "cool");
-    printf("%s\n", ht->array[index]->value);
-    index = key_index(key2, 1024);
-    printf("%s\n", ht->array[index]->next->value);
-    hash_table_set(ht, "mentioner", "Now cooler");
-    printf("%s\n", ht->array[index]->next->value);
-    hash_table_set(ht, "betty", "once cool");
-    index = key_index(key, 1024);
-    printf("%s\n", ht->array[index]->value);
-    return (EXIT_SUCCESS);
+    hash_table_set(ht, "c", "fun");
+    hash_table_set(ht, "python", "awesome");
+    hash_table_set(ht, "Bob", "and Kris love asm");
+    hash_table_set(ht, "N", "queens");
+    hash_table_set(ht, "Asterix", "Obelix");
+    hash_table_set(ht, "Betty", "Cool");
+    hash_table_set(ht, "98", "Battery Street");
+    hash_table_set(ht, "c", "isfun");
+    hash_table_set(ht, "hetairas", "goddess");
+    hash_table_set(ht, "mentioner", "@mentions");
+    hash_table_set(ht, "stylist", "Looks_cool");
+    hash_table_set(ht, "joyful", "comerade");
+    hash_table_set(ht, "synaphea", "don't_know:)");
+    hash_table_set(ht, "redescribed", "as a coder");
+    hash_table_set(ht, "urites", "god of urine");
+    hash_table_set(ht, "urites", NULL);
+    hash_table_set(ht, NULL, "god of urine");
+    hash_table_set(ht, NULL, "god of urine");
+    hash_table_set(ht, "", "Empty key");
+    hash_table_set(ht, "locked", "");
+    hash_table_set(NULL, "Null table", "god of urine");
+    return (0);
 }
