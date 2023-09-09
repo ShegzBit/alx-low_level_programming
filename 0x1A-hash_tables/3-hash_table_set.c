@@ -16,7 +16,7 @@ int handle_collision(hash_table_t *ht, unsigned long int index,
 	cur_hs = ht->array[index];
 	if (cur_hs != NULL && strcmp(cur_hs->key, node->key) == 0)
 	{
-		free(ht->array[index]);
+		free_node(ht->array[index]);
 		ht->array[index] = node;
 	}
 	else
