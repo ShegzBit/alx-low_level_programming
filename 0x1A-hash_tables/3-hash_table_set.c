@@ -1,5 +1,40 @@
 #include "hash_tables.h"
 
+/**
+ * check_exist - checks if a node exists in a chain
+ * @chain: chain to check through
+ * @node: node to check for
+ * Return: 1 if node exists | 0 otherwise
+ */
+int check_exist(hash_node_t *chain, hash_node_t *node)
+{
+	hash_node_t *temp = chain;
+
+	printf("checkpoint 1\n");
+	/*Loop to the end of chain*/
+	while (temp)
+	{
+		/*If node in chain return true*/
+		if (strcmp(node->key, temp->key) == 0)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
+
+
+/**
+ * free__node - free a node
+ * @node: node
+ */
+void free__node(hash_node_t *node)
+{
+	if (node == NULL)
+		return;
+	free(node->key);
+	free(node->value);
+	free(node);
+}
 
 /**
  * handle_collision - handles collision
@@ -14,10 +49,19 @@ int handle_collision(hash_table_t *ht, unsigned long int index,
 	hash_node_t *cur_hs = NULL;
 
 	cur_hs = ht->array[index];
-	if (cur_hs != NULL && strcmp(cur_hs->key, node->key) == 0)
+	printf("Key1: %s\n", ht->array[index]->key);
+	if (strcmp(cur_hs->key, node->key) == 0)
 	{
-		free_node(ht->array[index]);
+		free__node(ht->array[index]);
 		ht->array[index] = node;
+	}
+	else if (!check_exist(cur_hs, node))
+	{
+		printf("tye\n");
+		node->next = ht->array[index];
+		ht->array[index] = node;
+		printf("Key2: %s\n", ht->array[index]->key);
+		printf("Key2: %s\n", node->key);
 	}
 	else
 	{
@@ -25,6 +69,7 @@ int handle_collision(hash_table_t *ht, unsigned long int index,
 		{
 			if (strcmp(cur_hs->key, node->key) == 0)
 			{
+				printf("Key: %s\n", ht->array[index]->key);
 				free(ht->array[index]->value);
 				ht->array[index]->value = strdup(node->value);
 				free(node->key);
@@ -33,11 +78,6 @@ int handle_collision(hash_table_t *ht, unsigned long int index,
 				break;
 			}
 			cur_hs = cur_hs->next;
-		}
-		if (cur_hs == NULL)
-		{
-			node->next = ht->array[index]->next;
-			ht->array[index]->next = node;
 		}
 	}
 	return (1);
