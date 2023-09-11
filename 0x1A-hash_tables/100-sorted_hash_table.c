@@ -5,20 +5,23 @@
  * uppercase is lower than lowercase in ranking
  * @ht: table to sort
  * @node: new node to insert
+ * @temp: a temp to use locally in function
+ * @prev: a prev to use locally in funtion
+ * both storage variable
  * Return: 1 on success | 0 otherwise
  * 0 only when null is passed
  */
-void sort_table(shash_table_t **ht, shash_node_t *node)
+int sort_table(shash_table_t **ht, shash_node_t *node,
+		shash_node_t *temp, shash_node_t *prev)
 {
-	shash_node_t *temp, *prev;
-
 	if (!ht || !node)
-		return;
+		return (0);
 	temp = (*ht)->shead, prev = temp;
 	if (temp == NULL)
 	{
 		(*ht)->shead = node;
 		(*ht)->stail = node;
+		return (0);
 	} else if (strcmp(node->key, temp->key) < 0)
 	{
 		node->snext = temp;
@@ -27,7 +30,7 @@ void sort_table(shash_table_t **ht, shash_node_t *node)
 			temp->sprev = node;
 		return (1);
 	}
-	while (temp && strcmp(node->key, temp->key))
+	while (temp && strcmp(node->key, temp->key) > 0)
 	{
 		if (temp == NULL)
 			break;
@@ -50,6 +53,7 @@ void sort_table(shash_table_t **ht, shash_node_t *node)
 		temp->sprev = node;
 	if (!temp)
 		(*ht)->stail = node;
+	return (1);
 }
 
 
@@ -59,6 +63,7 @@ void sort_table(shash_table_t **ht, shash_node_t *node)
  */
 void free_snode(shash_node_t *node)
 {
+	(void)node;
 	if (node == NULL)
 		return;
 	free(node->key);
@@ -107,8 +112,8 @@ void s_collision(shash_table_t *ht, shash_node_t *node, lu_int index)
 		return;
 	if (strcmp(node->key, cur_hs->key) == 0)
 	{
-		free_snode(cur_hs);
 		ht->array[index] = node;
+		/*free_snode(cur_hs);*/
 		return;
 	}
 	temp = cur_hs;
@@ -147,7 +152,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	/*create vars check null for all arguments*/
 	lu_int index;
-	shash_node_t *node = NULL;
+	shash_node_t *node = NULL, *temp = NULL, *prev = NULL;
 
 	if (!ht || !key || !value || strlen(key) == 0)
 		return (0);
@@ -181,7 +186,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		s_collision(ht, node, index);
 	}
 	/*handle sorting*/
-	sort_table(&ht, node);
+	sort_table(&ht, node, temp, prev);
 	return (1);
 }
 
@@ -270,4 +275,29 @@ void shash_table_print_rev(const shash_table_t *ht)
 		cur_hs = cur_hs->sprev;
 	}
 	printf("}\n");
+}
+
+
+/**
+ * shash_table_delete - deletes a hash table
+ * @ht: table to delete
+ */
+void shash_table_delete(shash_table_t *ht)
+{
+	lu_int size = ht->size, i;
+	shash_node_t *cur_hs = NULL, *next_hs = NULL;
+
+	if (ht == NULL)
+		return;
+	for (i = 0; i < size; i++)
+	{
+		cur_hs = ht->array[i];
+		while (cur_hs)
+		{
+			next_hs = cur_hs;
+			cur_hs = cur_hs->next;
+			free_snode(next_hs);
+		}
+		free_snode(cur_hs);
+	}
 }
