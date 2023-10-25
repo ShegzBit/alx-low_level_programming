@@ -1,1 +1,32 @@
-#!/usr/bin/bash
+# .phonies
+.PHONY: clean oclean fclean
+
+# variables
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm
+
+# make rules
+
+all : $(NAME) m.h
+
+$(NAME) : $(OBJ) m.h
+	$(CC) -o $@ $^
+
+%.o : %.c m.h
+	$(CC) -c $< -o $@
+
+re : oclean all
+
+# destroy rules
+
+clean :
+	rm -f *~ school
+	rm -f *.swp
+
+oclean :
+	rm -f main.o school.o
+
+fclean : clean oclean
