@@ -5,7 +5,7 @@ NAME=school
 
 all : $(NAME)
 
-school : $(OBJ) m.h
+$(NAME) : $(OBJ) m.h
 	$(CC) $(OBJ) -o school
 
 main.o : main.c
