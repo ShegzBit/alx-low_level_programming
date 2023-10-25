@@ -24,7 +24,6 @@ re : oclean all
 
 clean :
 	rm -f *~ school
-	rm -f *.swp
 
 oclean :
 	rm -f main.o school.o
