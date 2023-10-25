@@ -23,9 +23,9 @@ re : oclean all
 # destroy rules
 
 clean :
-	rm -f *~ school
+	$(RM) -f *~ school
 
 oclean :
-	rm -f main.o school.o
+	$(RM) -f main.o school.o
 
 fclean : clean oclean
