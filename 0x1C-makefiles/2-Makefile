@@ -1,15 +1,20 @@
-CC=gcc
-SRC=main.c school.c
-OBJ=*.o
-NAME=school
+# Variables
+CC = gcc
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+NAME = school
 
-all : $(NAME)
+# Rules
+all: $(NAME)
 
-$(NAME) : $(OBJ) m.h
-	$(CC) $(OBJ) -o school
+$(NAME): $(OBJ)
+	$(CC) -o $@ $^
 
-main.o : main.c
-	$(CC) -c main.c -o main.o
+%.o: %.c
+	$(CC) -c $< -o $@
 
-school.o : school.c
-	$(CC) -c school.c -o school.o
+clean:
+	rm -f $(OBJ) $(NAME)
+
+re: clean all
+
