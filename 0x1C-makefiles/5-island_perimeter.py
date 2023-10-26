@@ -15,7 +15,7 @@ def island_perimeter(grid):
     # tracks breadth if 1 appears more than once
     # resets to 0 after each row
     perimeter = 0
-    
+
     length = len(grid)
     breadth = len(grid[0])
 
