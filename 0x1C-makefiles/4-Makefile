@@ -13,6 +13,8 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 
 all : $(NAME)
 
+@
+
 $(NAME) : $(OBJ)	
 	@# gcc -o school main.o school.o -Wall -Werror -Wextra -pedantic
 	$(CC) -o $@ $^
