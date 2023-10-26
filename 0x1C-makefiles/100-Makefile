@@ -1,0 +1,34 @@
+# phonies
+.PHONY : clean oclean fclean
+
+# variables
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# make rules
+
+all : $(NAME)
+
+$(NAME) : $(OBJ)	
+	@# gcc -o school main.o school.o -Wall -Werror -Wextra -pedantic
+	$(CC) -o $@ $^
+
+%.o : %.c m.h
+	@# gcc -c main.c -o main.o
+	$(CC) -c $^ $(CFLAGS)
+
+re : oclean all
+
+# destroy rules
+clean :
+	@# rm -f *~ school
+	$(RM) -f *~ $(NAME)
+
+oclean :
+	@#rm -f main.o school.o
+	$(RM) -f $(OBJ)
+fclean: clean oclean
