@@ -1,24 +1,26 @@
-NAME = school
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -pedantic
+# phony target
+.PHONY: all fclean clean oclean re
+
+# variables
 SRC = main.c school.c
+CC = gcc
 OBJ = $(SRC:.c=.o)
+NAME = school
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
-all: $(NAME)
+# make rules
 
-$(NAME): $(OBJ)
-	@$(CC) $(OBJ) -o $(NAME)
+all: $(OBJ) m.h
+	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.c m.h
-	@$(CC) $(CFLAGS) -c $< -o $@
+re: oclean all
+
+# destroy rules
 
 clean:
-	@/bin/rm -f *~ \#*\# $(NAME)
+	$(RM) -f *~ $(NAME)
 
 oclean:
-	@/bin/rm -f $(OBJ)
+	$(RM) -f $(OBJ)
 
 fclean: clean oclean
-
-re: fclean all
-
