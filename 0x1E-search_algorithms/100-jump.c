@@ -1,19 +1,20 @@
 #include "search_algos.h"
+#include <math.h>
 
 /**
  * _sqrt - finds the squareroot of a number
  * @num: number of whose squreroot to find
  * Return: the sqrt of number
  */
-int _sqrt(int num) {
-    double guess = num / 2.0;
-    double epsilon = 0.00001;
+int _sqrt(int num)
+{
+	double guess = num / 2.0;
+	double epsilon = 0.00001;
 
-    while ((guess * guess - num) >= epsilon || (num - guess * guess) >= epsilon) {
-        guess = (guess + num / guess) / 2.0;
-    }
+	while ((guess * guess - num) >= epsilon || (num - guess * guess) >= epsilon)
+		guess = (guess + num / guess) / 2.0;
 
-    return guess;
+	return (guess);
 }
 
 /**
@@ -34,13 +35,9 @@ int jump_search(int *array, size_t size, int value)
 	if (!array || !size)
 		return (-1);
 	/*Jump until the end of the loop*/
-	while (stop < size)
+	/*Break if value boundary has been crossed*/
+	while (array[stop] < value && size > stop)
 	{
-		/*Break if value boundary has been crossed*/
-		if (array[stop] >= value)
-		{
-			break;
-		}
 		start = stop;
 		stop += step;
 		printf("Value checked array[%ld] = [%d]\n", start, array[start]);
