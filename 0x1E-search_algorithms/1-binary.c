@@ -35,7 +35,7 @@ int search(int *array, size_t start, size_t end, int value)
 	if (!array || end - start == 0)
 		return (-1);
 	printf("Searching in array: ");
-	print_array(array, end - start);
+	print_array(array + start, end - start);
 	/*prepare a base case for case 200 and 404*/
 	if (value == array[mid])
 		return (mid);
