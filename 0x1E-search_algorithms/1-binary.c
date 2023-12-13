@@ -1,6 +1,5 @@
 #include "search_algos.h"
 
-
 /**
  * print_array - prints an array
  * @array: array to pint
@@ -13,10 +12,7 @@ void print_array(int *array, size_t size)
 	if (!array)
 		return;
 	for (; i < size; i++)
-	{
-		printf("%d", array[i]);
-		(i < size - 1) ? printf(", ") : printf("\n");
-	}
+		printf("%d%s", array[i], (i < size - 1) ? ", " : "\n");
 }
 
 /**
