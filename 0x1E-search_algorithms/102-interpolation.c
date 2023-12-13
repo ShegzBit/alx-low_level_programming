@@ -2,7 +2,7 @@
 
 
 /**
- * search - perfoms a binary search
+ * inter_search - perfoms a binary search
  * @array: on array @array
  * @size: of size
  * @low: from start
@@ -10,7 +10,7 @@
  * @value: for value @value
  * Return: the index of the first occurence of value
  */
-int search(int *array, size_t low, size_t high, int value, size_t size)
+int inter_search(int *array, size_t low, size_t high, int value, size_t size)
 {
 	size_t pos = low + (((double)(high - low) /
 				(array[high] - array[low])) * (value - array[low]));
@@ -26,9 +26,9 @@ int search(int *array, size_t low, size_t high, int value, size_t size)
 	if (value == array[pos])
 		return (pos);
 	if (value < array[pos])
-		return (search(array, low, pos - 1, value, size));
+		return (inter_search(array, low, pos - 1, value, size));
 	if (value > array[pos])
-		return (search(array, pos + 1, high, value, size));
+		return (inter_search(array, pos + 1, high, value, size));
 
 	return (-1);
 }
@@ -45,5 +45,5 @@ int interpolation_search(int *array, size_t size, int value)
 	if (!array || !size)
 		return (-1);
 
-	return (search(array, 0, size - 1, value, size));
+	return (inter_search(array, 0, size - 1, value, size));
 }

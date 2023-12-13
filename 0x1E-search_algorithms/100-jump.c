@@ -50,7 +50,6 @@ int jump_search(int *array, size_t size, int value)
 	/*Loop through boundary to find the value*/
 	while (start <= stop)
 	{
-		printf("Value checked array[%ld] = [%d]\n", start, array[start]);
 		if (array[start] == value)
 			return (start);
 		start++;
