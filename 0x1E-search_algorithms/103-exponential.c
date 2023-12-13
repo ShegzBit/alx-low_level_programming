@@ -1,6 +1,5 @@
 #include "search_algos.h"
 
-
 /**
  * print_array - prints an array
  * @array: array to pint
@@ -26,7 +25,7 @@ void print_array(int *array, size_t size)
  */
 int ex_bin_search(int *array, size_t start, size_t end, int value)
 {
-	size_t mid = start + (end - start) / 2;
+	size_t mid = start + (end - start + 1) / 2;
 
 	if (!array || end - start == 0)
 		return (-1);
@@ -35,10 +34,20 @@ int ex_bin_search(int *array, size_t start, size_t end, int value)
 
 	if (value == array[mid])
 		return (mid);
+	if (array[mid - 1])
+	{
+		if (array[mid - 1] == value)
+			return (mid - 1);
+	}
+	else if (array[mid + 1])
+	{
+		if (array[mid + 1])
+			return (mid + 1);
+	}
 	if (value < array[mid])
 		return (ex_bin_search(array, start, mid, value));
 	if (value > array[mid])
-		return (ex_bin_search(array, mid + 1, end, value));
+		return (ex_bin_search(array, mid, end, value));
 	return (-1);
 }
 
@@ -51,7 +60,7 @@ int ex_bin_search(int *array, size_t start, size_t end, int value)
  */
 int exponential_search(int *array, size_t size, int value)
 {
-	size_t i = 0;
+	size_t i = 0, end;
 
 	if (!array || !size)
 		return (-1);
@@ -61,7 +70,8 @@ int exponential_search(int *array, size_t size, int value)
 	i++;
 	for (; i < size && value > array[i]; i = i * 2)
 		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+	end = (i >= size) ? size - 1 : i;
 
-	printf("Value found between indexes [%ld] and [%ld]\n", i / 2, i);
+	printf("Value found between indexes [%ld] and [%ld]\n", i / 2, end);
 	return (ex_bin_search(array, i / 2, i, value));
 }
