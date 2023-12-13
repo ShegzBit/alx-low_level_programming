@@ -42,8 +42,6 @@ int search(int *array, size_t low, size_t high, int value, size_t size)
  */
 int interpolation_search(int *array, size_t size, int value)
 {
-	int high = size - 1, low = 0;
-
 	if (!array || !size)
 		return (-1);
 
