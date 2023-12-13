@@ -28,7 +28,14 @@ int advanced_binary(int *array, size_t size, int value)
 }
 #include "search_algos.h"
 
-
+/**
+ * search - perfoms a binary search
+ * @array: on array @array
+ * @start: from start
+ * @end: to stop
+ * @value: for value @value
+ * Return: the index of the first occurence of value
+ */
 int search(int *array, size_t start, size_t end, int value)
 {
 	size_t mid = start + (end - start - 1) / 2;
