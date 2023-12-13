@@ -26,7 +26,7 @@ void print_array(int *array, size_t size)
  */
 int ex_bin_search(int *array, size_t start, size_t end, int value)
 {
-	size_t mid = start + (end - start - 1) / 2;
+	size_t mid = start + (end - start) / 2;
 
 	if (!array || end - start == 0)
 		return (-1);
@@ -51,7 +51,7 @@ int ex_bin_search(int *array, size_t start, size_t end, int value)
  */
 int exponential_search(int *array, size_t size, int value)
 {
-	size_t i = 0;
+	size_t i = 0, display_size;
 
 	if (!array || !size)
 		return (-1);
@@ -62,9 +62,9 @@ int exponential_search(int *array, size_t size, int value)
 	for (; i < size && value > array[i]; i = i * 2)
 		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 
-	printf("Value found between indexes [%ld] and [%ld]\n", i / 2, i);
 
-	if (i > size)
-		i = size;
+	display_size = (i >= size) ? size - 1 : i;
+	printf("%ld -- %ld\n", display_size, size);
+	printf("Value found between indexes [%ld] and [%ld]\n", i / 2, display_size);
 	return (ex_bin_search(array, i / 2, i, value));
 }
